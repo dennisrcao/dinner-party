@@ -1,0 +1,65 @@
+.footer {
+  width: 100%;
+  height: 15dvh;
+  display: flex;
+  justify-content: center;
+  background-color: orange;
+
+  .rsvp {
+    width: 40%;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .rsvpChoice {
+      height: 15dvh;
+      width: 10dvh;
+      background-color: antiquewhite;
+    }
+  }
+}
+
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+
+  .popupContent {
+    margin-bottom: 20px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 10px;
+      }
+
+      input,
+      select {
+        margin-top: 5px;
+        margin-bottom: 15px;
+      }
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  }
+}
+

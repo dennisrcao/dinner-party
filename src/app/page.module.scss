@@ -1,0 +1,52 @@
+.main {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    justify-content: center;
+    background-color: #001822;
+    // background-color: blue;
+
+    .title{
+      width: 70%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      background-color: #001822;
+
+      img{
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+    }
+  }
+
+  .info{
+    width: 100%;
+    height: 70dvh;
+    background-color: red;
+
+    .date{
+      width: 30%;
+      height: 50%;
+      background-color: green;
+    }
+  }
+
+  .footer {
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    justify-content: center;
+    background-color: orange;
+
+  }
+}
+
+
