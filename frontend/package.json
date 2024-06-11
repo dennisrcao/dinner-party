@@ -1,0 +1,29 @@
+{
+  "name": "dinner-party",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "vercel-build": "next build"
+
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "next": "14.2.3",
+    "next-auth": "^4.24.7",
+    "openid-client": "^5.6.4",
+    "react": "^18",
+    "react-calendar": "^5.0.0",
+    "react-dom": "^18",
+    "sass": "^1.77.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "globals": "^15.4.0",
+    "typescript": "^5"
+  }
+}

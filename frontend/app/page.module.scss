@@ -1,0 +1,85 @@
+
+.main {
+  display: flex;
+  flex-direction: column;
+  background-color: #001822;
+
+  .header {
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    justify-content: center;
+
+    .title{
+      width: 70%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      img{
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .body{
+    width: 100%;
+    height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    background-color: #001822;
+    color: white;
+    font-size: 24px;
+    // background-color: red;
+
+
+    .dateParkingMenuContainer {
+      width: 100%;
+      height: 75%;
+      // background-color: lightblue;
+
+      display: flex;
+      .dateTime, .infoParking, .menu{
+        width: 33.3%;
+        border: 1px solid white;
+        // background-color: green;
+
+      }
+    }
+
+    .attendingContainer {
+      height: 25%;
+      width: 100%;
+      // background-color: orange;
+    }
+
+
+  }
+
+  .footer {
+    width: 100%;
+    height: 5dvh;
+    display: flex;
+    justify-content: center;
+    background-color: #001822;
+
+
+    // background-color: orange;
+
+    .buttonContainer{
+      width: 30%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // background-color: red;
+
+    }
+
+  }
+}
+
+

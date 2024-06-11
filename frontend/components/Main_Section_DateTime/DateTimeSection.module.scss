@@ -1,0 +1,51 @@
+
+.sectionContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  // background-color: orange;
+
+
+  .sectionTitle {
+    height: 7%;
+    width: 100%;
+    // background-color: red;
+
+  }
+  .sectionDateAndTime {
+    width: 100%;
+    height: 13%;
+    display: flex;
+    flex-direction: column;
+    // background-color: red;
+
+
+    .sectionDate {
+      height: 50%;
+      width: 100%;
+      // background-color: orange;
+    }
+
+    .sectionTime {
+      height: 50%;
+      width: 100%;
+      // background-color: blue;
+    }
+
+
+  }
+
+  .sectionCalendar{
+    height: 50%;
+    width: 100%;
+    background-color: green;
+  }
+
+  .addToGoogleCalendar{
+    height: 20%;
+    width: 100%;
+    background-color: blue;
+  }
+}
