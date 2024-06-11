@@ -1,11 +1,10 @@
 Github Repo: https://github.com/dennisrcao/dinner-party
-
 Google Console Cloud: https://console.cloud.google.com/
 
 
 ## Getting Started
 
-Clone the repository, cd into it and run
+Clone the repository, cd into ```dinner-party```
 
 ```bash
 npm install
