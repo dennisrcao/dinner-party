@@ -17,6 +17,27 @@ First, cd into **frontend** repo
 ```bash
 cd frontend
 npm install
+```
+
+Next create a ```.env.local``` inside of repo ```dinner-party```
+
+here's mine for example:
+```base
+GOOGLE_CLIENT_ID=<SENSITIVE>
+GOOGLE_CLIENT_SECRET=<SENSITIVE>
+NEXTAUTH_URL=http://localhost:3000
+
+PORT=5001
+DATABASE_URL=postgresql://dennisrcao:Denn15c40.@dinnerparty.cu5uiqqs8k9e.us-east-2.rds.amazonaws.com:5432/dinnerparty?ssl=true
+DB_USER=dennisrcao
+DB_HOST=dinnerparty.cu5uiqqs8k9e.us-east-2.rds.amazonaws.com
+DB_NAME=dinnerparty
+DB_PASS=<SENSITIVE>
+DB_PORT=5432
+```
+
+Then to rebuild and deploy the server run
+```
 npm run build
 npm run dev
 ```
