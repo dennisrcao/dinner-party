@@ -1,4 +1,6 @@
 Github Repo: https://github.com/dennisrcao/dinner-party
+Google Console Cloud: https://console.cloud.google.com/
+
 
 ## Getting Started
 

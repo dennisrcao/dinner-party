@@ -2,6 +2,8 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import RSVP from "../components/RSVP"
+import AuthButton from "../components/AuthButton"; // Import the AuthButton component
+
 
 export default function Home() {
   const handleClick = () => {
@@ -24,6 +26,8 @@ export default function Home() {
       </div>
       <div className={styles.footer}>
         <RSVP/>
+        <AuthButton /> {/* Add the AuthButton component here */}
+
 
       </div>
 
