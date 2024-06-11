@@ -12,11 +12,9 @@ Clone the repository, cd into the repo ```dinner-party```
 
 ### Build Front End
 
- cd into frontend repo
- ```bash
- cd frontend```
-
+cd into frontend repo
 ```bash
+cd frontend
 npm install
 ```
 
