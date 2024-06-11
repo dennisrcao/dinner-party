@@ -30,7 +30,7 @@ npm install
 npm run dev
 ```
 
-npm run dev will build and start (start bypasses SSL security using flag NODE_TLS_REJECT_UNAUTHORIZED='0')
+npm run dev will build and start (npm run start command bypasses SSL security using flag NODE_TLS_REJECT_UNAUTHORIZED='0')
 
 
 
