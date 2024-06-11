@@ -1,4 +1,9 @@
+
+//This frontend db.ts is a symbolic link of the backend file
 // backend/src/db/db.ts
+
+// When you create a symlink, you're essentially creating a reference to the original file or directory. This means any changes made to the original file will be reflected in the symlink.
+
 
 import { Client } from 'pg';
 import dotenv from 'dotenv';

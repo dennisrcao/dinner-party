@@ -8,7 +8,6 @@ import { SessionProvider } from "next-auth/react"; // Used to wrap the useSessio
 import { Provider as ReduxProvider } from 'react-redux'; // Import Redux Provider
 import store from '../store'; // Import your Redux store
 
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -17,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <ReduxProvider store={store}> {/* Wrap with Redux Provider */}
           <SessionProvider>{children}</SessionProvider>
         </ReduxProvider>

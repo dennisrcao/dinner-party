@@ -1,21 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import GoogleAuthButton from './GoogleAuthButton';
 import axios from 'axios';
 import styles from './PopUpForm.module.scss';
+import CloseIcon from '../../public/images/close-icon.svg';
 
 interface PopUpFormProps {
   popUpVisible: boolean;
   handleClose: () => void;
+  session: any;
+
 }
 
-const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose }) => {
+const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, session}) => {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [venmo, setVenmo] = useState('');
   const [phone, setPhone] = useState('');
+
+  useEffect(() => {
+    if (session?.user){
+      setName(session.user.name || '');
+      setEmail(session.user.email || '');
+    }
+  }, [session])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,37 +50,50 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose }) => {
   return (
     <div className={styles.popUpOverlay}>
       <div className={styles.popUp}>
-        <div className={styles.popUpCloseButton}>
-          X button
+        <div className={styles.closeButtonContainer}>
+          <CloseIcon className={styles.closeIcon} onClick={handleClose}/>
         </div>
         <div className={styles.googleAuthButtonContainer}>
           <GoogleAuthButton />
         </div>
-        <div className={styles.popUpContent}>
+        <div className={styles.formContent}>
           <form onSubmit={handleSubmit}>
-            <label>
-              Name:
-              <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
-            </label>
-            <br />
-            <label>
-              Email:
-              <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </label>
-            <br />
-            <label>
-              Venmo handle @:
-              <input type="text" name="venmo" value={venmo} onChange={(e) => setVenmo(e.target.value)} />
-            </label>
-            <br />
-            <label>
-              Phone #:
-              <input type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-            </label>
-            <br />
-            <button type="submit">Submit</button>
+
+            <div className={styles.entryContainer}>
+              <div className={styles.entryKey}> Name: </div>
+              <div className={styles.entryValue}>
+                <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+              </div>
+            </div>
+
+            <div className={styles.entryContainer}>
+              <div className={styles.entryKey}>Email:</div>
+              <div className={styles.entryValue}>
+                <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
+            </div>
+
+            <div className={styles.entryContainer}>
+              <div className={styles.entryKey}>Venmo handle @: </div>
+              <div className={styles.entryValue}>
+                <input type="text" name="venmo" value={venmo} onChange={(e) => setVenmo(e.target.value)} />
+              </div>
+            </div>
+
+            <div className={styles.entryContainer}>
+              <div className={styles.entryKey}>Phone #:</div>
+              <div className={styles.entryValue}>
+                <input type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              </div>
+            </div>
+
+            <div className={styles.submitContainer}>
+              <button className={styles.submitButton} type="submit">Submit</button>
+            </div>
+
+
           </form>
-          <button onClick={handleClose}>Close</button>
+          {/* <button onClick={handleClose}>Close</button> */}
         </div>
       </div>
     </div>

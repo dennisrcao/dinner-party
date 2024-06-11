@@ -1,34 +1,58 @@
-.signInButton{
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
+.signInContainer{
+  width: 30%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   font-size: 32px;
   padding: 15px;
+  // background-color: red;
+
+  .imageGoogle{
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
 
 }
 
 .sessionDetails {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 150px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   // background-color: orange;
 
-  .pictureContainer img{
-    height: 100%;
-    // width: 50%;
-    width: auto;
-    // width: 10%;
-    // width: 100%;
-    object-fit: cover;
-    background-color: orange;
-  }
+  .pictureContainer {
+    margin-top: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    // border-radius: 0;
+    overflow: hidden;
 
-  .buttonSignOut {
-    width: 60px;
-    height: 40%;
+    .userPic {
+      object-fit: cover
+    }
+  }
+  .buttonSignOutContainer{
+    // width: 100px;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: red;
+
+    .buttonSignOut {
+      width: 80%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+    }
   }
 }
 

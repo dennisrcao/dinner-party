@@ -1,21 +1,24 @@
 import { useState, useEffect } from 'react';
-import styles from './RSVPButton.module.scss';
 import PopUpForm from './PopUpForm';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store';
-import { logIn, logOut } from '../../store/authSlice';
 import { useSession } from 'next-auth/react';
+import { useDispatch } from 'react-redux';
+import { logIn, logOut } from '../../store/authSlice';
+
+
+import styles from './RSVPButton.module.scss';
+
 
 const RSVP = () => {
-  const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const { data: session } = useSession();
-  const [buttonToggleOn, setButtonToggleOn] = useState(false);
+  const dispatch = useDispatch();
+
   const [showPopUp, setShowPopUp] = useState(false);
 
-  console.log("RSVP with isLoggedIn:", isLoggedIn);
-
   useEffect(() => {
+    const savedPopupState = localStorage.getItem('showPopUp');
+    if (savedPopupState === 'true') {
+      setShowPopUp(true);
+    }
     if (session) {
       dispatch(logIn());
     } else {
@@ -23,20 +26,14 @@ const RSVP = () => {
     }
   }, [session, dispatch]);
 
-  useEffect(() => {
-    if (buttonToggleOn || isLoggedIn) {
-      setShowPopUp(true);
-    } else {
-      setShowPopUp(false);
-    }
-  }, [buttonToggleOn, isLoggedIn]);
-
   const handleClick = () => {
-    setButtonToggleOn(true);
+    setShowPopUp(true);
+    localStorage.setItem('showPopUp', 'true');
   };
 
   const handleClose = () => {
-    setButtonToggleOn(false);
+    setShowPopUp(false);
+    localStorage.setItem('showPopUp', 'false');
   };
 
   return (
@@ -49,15 +46,14 @@ const RSVP = () => {
           RSVP and <br /> Google Sign-In
         </button>
       </div>
-      {console.log("showPopUp!", showPopUp)}
 
-      {
-        showPopUp &&
+      {showPopUp && (
         <PopUpForm
           popUpVisible={showPopUp}
           handleClose={handleClose}
+          session={session}
         />
-      }
+      )}
     </>
   );
 };

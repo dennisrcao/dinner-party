@@ -2,6 +2,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn, logOut } from '../../store/authSlice';
+import Image from 'next/image';
 
 import styles from './GoogleAuthButton.module.scss';
 
@@ -23,26 +24,43 @@ const GoogleAuthButton = () => {
     <>
       {!session ?
       (
-        <button
-          className={styles.signInButton}
+        <div
+          className={styles.signInContainer}
           onClick={() => signIn("google", { callbackUrl: window.location.href, state: 'someStateValue' })}
         >
-        Google Sign In & RSVP
-        </button>
+          <Image
+            src="/images/SignInWithGoogle.png" // Make sure to replace this with the correct path to your image
+            alt="Google Sign In"
+            width={248} // Set the width of your image
+            height={60} // Set the height of your image
+            className={styles.imageGoogle}
+          />
+
+        </div>
       ) :
       (
         <div className={styles.sessionDetails}>
           {/* <p>Signed in as {session.user.name}</p> */}
           <div className={styles.pictureContainer}>
-            <img  src={session.user.picture} alt="Profile Picture" />
+            <Image
+              src={session.user.picture}
+              alt={"ProfilePic"}
+              width={100}
+              height={100}
+              className={styles.userPic}
+            />
+
           </div>
           {/* <p>Email: {session.user.email}</p> */}
-          <button
-            onClick={() => signOut()}
-            className={styles.buttonSignOut}
-          >
-          Sign out
-          </button>
+          <div className={styles.buttonSignOutContainer}>
+            <button
+              onClick={() => signOut()}
+              className={styles.buttonSignOut}
+            >
+            Sign out
+            </button>
+          </div>
+
         </div>
       )}
     </>
@@ -50,3 +68,4 @@ const GoogleAuthButton = () => {
 };
 
 export default GoogleAuthButton;
+
