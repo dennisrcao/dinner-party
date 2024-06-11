@@ -36,7 +36,7 @@ DB_PASS=<SENSITIVE>
 DB_PORT=5432
 ```
 
-Then to rebuild and deploy the server run
+Then to rebuild and serve the webpage
 ```
 npm run build
 npm run dev
@@ -49,24 +49,31 @@ First, cd into **backend** repo
 ```bash
 cd backend
 npm install
+```
+
+Then to rebuild and deploy the server run
+```
+npm run build
 npm run dev
 ```
+Open [http://localhost:5001/attendees](http://localhost:5001/attendees)
+
+
 npm run dev will build and start (npm run start command bypasses SSL security using flag NODE_TLS_REJECT_UNAUTHORIZED='0')
 
-### Configure BackEnd
 
-View Data PSQL
+
+### Database
+
+Access database & view PostgreSQL data:
 ```bash
 psql -h dinnerparty.cu5uiqqs8k9e.us-east-2.rds.amazonaws.com -U dennisrcao -p 5432 -d dinnerparty
 ```
 Then enter password
 
+Database admin panel:
 
-
-
-
-
-
+Open [http://localhost:3000/admin-page](http://localhost:3000/admin-page)
 
 
 

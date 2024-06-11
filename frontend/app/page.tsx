@@ -36,7 +36,6 @@ export default function Home() {
       </div>
       <div className={styles.footer}>
         <div className={styles.buttonContainer}>
-        {/* <AuthButton />  */}
         <RSVP />
         </div>
 

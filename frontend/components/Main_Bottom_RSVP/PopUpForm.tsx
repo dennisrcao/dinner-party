@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import styles from './PopUpForm.module.scss';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 import GoogleAuthButton from './GoogleAuthButton';
 
+import styles from './PopUpForm.module.scss';
 
 interface PopUpFormProps {
   popUpVisible: boolean;
@@ -9,6 +10,9 @@ interface PopUpFormProps {
 }
 
 const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose }) => {
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  console.log("PopUpForm with isLoggedIn:", isLoggedIn);
+
   if (!popUpVisible) return null;
 
   return (
@@ -17,8 +21,8 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose }) => {
         <div className={styles.popUpCloseButton}>
           X button
         </div>
-        <div className={styles.googleAuthButton}>
-          <GoogleAuthButton/>
+        <div className={styles.googleAuthButtonContainer}>
+          <GoogleAuthButton />
         </div>
         <div className={styles.popUpContent}>
           <form>
@@ -32,13 +36,24 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose }) => {
               <input type="email" name="email" />
             </label>
             <br />
-            <label>
+            {/* <label>
               RSVP:
               <select name="rsvp">
                 <option value="going">Going</option>
                 <option value="not_going">Not Going</option>
                 <option value="maybe">Maybe</option>
               </select>
+            </label> */}
+
+            <label>
+              Venmo handle @:
+              <input type="venmo" name="venmo" />
+            </label>
+            <br />
+
+            <label>
+              Phone #:
+              <input type="phone" name="phone" />
             </label>
             <br />
             <button type="submit">Submit</button>
@@ -48,14 +63,6 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose }) => {
       </div>
     </div>
   );
-
-
-
-
-
 };
 
 export default PopUpForm;
-
-
-

@@ -5,6 +5,8 @@ import '../styles/globals.scss';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SessionProvider } from "next-auth/react"; // Used to wrap the useSession in AuthButton.tsx
+import { Provider as ReduxProvider } from 'react-redux'; // Import Redux Provider
+import store from '../store'; // Import your Redux store
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider>{children}</SessionProvider>
+        <ReduxProvider store={store}> {/* Wrap with Redux Provider */}
+          <SessionProvider>{children}</SessionProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

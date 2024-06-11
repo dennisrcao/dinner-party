@@ -31,6 +31,7 @@ const attendeesTableEntry = [
 const eventsTableEntry = [
     {
         "event_id": "1",
+        "type": "Hot Pot",
         "date": "Friday Jun 28 2024",
         "start_time": "6:00 PM",
         "end_time": "11:00 PM"

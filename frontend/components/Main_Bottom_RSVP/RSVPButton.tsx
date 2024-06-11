@@ -1,21 +1,43 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './RSVPButton.module.scss';
 import PopUpForm from './PopUpForm';
-import GoogleAuthButton from './GoogleAuthButton';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../store';
+import { logIn, logOut } from '../../store/authSlice';
+import { useSession } from 'next-auth/react';
 
 const RSVP = () => {
-  const [popupVisible, setPopupVisible] = useState(false);
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const { data: session } = useSession();
+  const [buttonToggleOn, setButtonToggleOn] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(false);
+
+  console.log("RSVP with isLoggedIn:", isLoggedIn);
+
+  useEffect(() => {
+    if (session) {
+      dispatch(logIn());
+    } else {
+      dispatch(logOut());
+    }
+  }, [session, dispatch]);
+
+  useEffect(() => {
+    if (buttonToggleOn || isLoggedIn) {
+      setShowPopUp(true);
+    } else {
+      setShowPopUp(false);
+    }
+  }, [buttonToggleOn, isLoggedIn]);
 
   const handleClick = () => {
-    setPopupVisible(true);
+    setButtonToggleOn(true);
   };
 
   const handleClose = () => {
-    setPopupVisible(false);
+    setButtonToggleOn(false);
   };
-
-
-
 
   return (
     <>
@@ -24,18 +46,18 @@ const RSVP = () => {
           className={styles.rsvpBtn}
           onClick={handleClick}
         >
-          RSVP and  <br/> Google Sign-In
+          RSVP and <br /> Google Sign-In
         </button>
       </div>
+      {console.log("showPopUp!", showPopUp)}
 
       {
-        popupVisible &&
+        showPopUp &&
         <PopUpForm
-          popUpVisible={popupVisible}
+          popUpVisible={showPopUp}
           handleClose={handleClose}
         />
       }
-      <GoogleAuthButton/>
     </>
   );
 };

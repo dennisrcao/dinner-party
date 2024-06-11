@@ -12,7 +12,7 @@
 }
 
 .popUp {
-  width: 0%; /* Adjust this value as needed */
+  width: 50%; /* Adjust this value as needed */
   height: 50%;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -26,21 +26,25 @@
     background-color: red;
   }
 
-  .googleAuthButton{
-    height: 10%;
+  .googleAuthButtonContainer{
+    height: 15%;
     width: 100%;
-    background-color: aquamarine;
+    // background-color: aquamarine;
+    // display: flex;
+
   }
 
-  .popupContent {
-    margin-bottom: 20px;
+  .popUpContent {
 
+    // background-color: yellow;
     form {
       display: flex;
       flex-direction: column;
+      background-color: orange;
 
       label {
         margin-bottom: 10px;
+        border: 1px solid black;
       }
 
       input,

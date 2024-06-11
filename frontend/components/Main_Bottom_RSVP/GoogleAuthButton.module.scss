@@ -7,3 +7,28 @@
   padding: 15px;
 
 }
+
+.sessionDetails {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: orange;
+
+  .pictureContainer img{
+    height: 100%;
+    // width: 50%;
+    width: auto;
+    // width: 10%;
+    // width: 100%;
+    object-fit: cover;
+    background-color: orange;
+  }
+
+  .buttonSignOut {
+    width: 60px;
+    height: 40%;
+  }
+}
+
