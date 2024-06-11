@@ -3,9 +3,9 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.scss";
-import RSVP from "../components/RSVP"
-import AuthButton from "../components/AuthButton"; // Import the AuthButton component
-import DateTimeSection from "../components/DateTimeSection";
+import RSVP from "../components/Main_Bottom_RSVP/RSVP"
+import AuthButton from "../components/Main_Bottom_RSVP/AuthButton"; // Import the AuthButton component
+import DateTimeSection from "../components/Main_Section_DateTime/DateTimeSection";
 
 
 export default function Home() {

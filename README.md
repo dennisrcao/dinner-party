@@ -3,8 +3,9 @@ Description here ...
 
 
 ## Important Links
-Github Repo: https://github.com/dennisrcao/dinner-party<br>
-Google Console Cloud: https://console.cloud.google.com/
+[Github Repo](https://github.com/dennisrcao/dinner-party)
+[Google Console Cloud] (https://console.cloud.google.com)
+[Amazon RDS Console](https://console.aws.amazon.com/rds)
 
 ## Getting Started
 
@@ -29,8 +30,16 @@ cd backend
 npm install
 npm run dev
 ```
-
 npm run dev will build and start (npm run start command bypasses SSL security using flag NODE_TLS_REJECT_UNAUTHORIZED='0')
+
+### Configure BackEnd
+
+
+
+
+
+
+
 
 
 

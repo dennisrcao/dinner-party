@@ -1,10 +1,11 @@
 "use client";
+import CustomCalendar from "./CustomCalendar";
 import styles from "./DateTimeSection.module.scss";
 
 const DateTimeSection = () => {
 
   return (
-    <div className={styles.dateSectionContainer}>
+    <div className={styles.sectionContainer}>
       <div className={styles.sectionTitle}>
         Date & Time
       </div>
@@ -16,7 +17,11 @@ const DateTimeSection = () => {
         7:00PM - 11:00PM
       </div>
       </div>
-      <div className={styles.calendar}>
+      <div className={styles.sectionCalendar}>
+        <CustomCalendar/>
+      </div>
+      <div className={styles.addToGoogleCalendar}>
+
       </div>
 
 

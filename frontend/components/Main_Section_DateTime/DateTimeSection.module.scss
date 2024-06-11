@@ -1,9 +1,10 @@
 
-.dateSectionContainer {
+.sectionContainer {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
   // background-color: orange;
 
 
@@ -16,27 +17,35 @@
   .sectionDateAndTime {
     width: 100%;
     height: 13%;
-    background-color: red;
     display: flex;
     flex-direction: column;
+    // background-color: red;
+
 
     .sectionDate {
       height: 50%;
       width: 100%;
-      background-color: orange;
+      // background-color: orange;
     }
 
     .sectionTime {
       height: 50%;
       width: 100%;
-      background-color: blue;
+      // background-color: blue;
     }
+
 
   }
 
-  .calendar{
+  .sectionCalendar{
     height: 50%;
     width: 100%;
-    // background-color: green;
+    background-color: green;
+  }
+
+  .addToGoogleCalendar{
+    height: 20%;
+    width: 100%;
+    background-color: blue;
   }
 }
