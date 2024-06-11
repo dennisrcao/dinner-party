@@ -12,7 +12,7 @@ Clone the repository, cd into the repo ```dinner-party```
 
 ### Build FrontEnd
 
-First, cd into frontend repo
+First, cd into **frontend** repo
 ```bash
 cd frontend
 npm install
@@ -20,11 +20,17 @@ npm run build
 npm run dev
 ```
 
-
-
 Open [http://localhost:3000](http://localhost:3000)
 
 ### Build BackEnd
+First, cd into **backend** repo
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+npm run dev will build and start (start bypasses SSL security using flag NODE_TLS_REJECT_UNAUTHORIZED='0')
 
 
 
