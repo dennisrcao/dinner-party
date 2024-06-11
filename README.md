@@ -2,7 +2,7 @@
 Description here ...
 
 
-## Important Linsk
+## Important Links
 Github Repo: https://github.com/dennisrcao/dinner-party<br>
 Google Console Cloud: https://console.cloud.google.com/
 
@@ -13,7 +13,7 @@ Clone the repository, cd into the repo ```dinner-party```
 ### Build Front End
 
  cd into frontend repo
- ```cd frontend```
+ ```bash cd frontend```
 
 ```bash
 npm install
