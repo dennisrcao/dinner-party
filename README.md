@@ -1,12 +1,19 @@
-# Important Links
+# Dinner Party App
+Description here ...
 
+
+## Important Linsk
 Github Repo: https://github.com/dennisrcao/dinner-party<br>
 Google Console Cloud: https://console.cloud.google.com/
 
-
 ## Getting Started
 
-Clone the repository, cd into ```dinner-party```
+Clone the repository, cd into the repo ```dinner-party```
+
+### Build Front End
+
+ cd into frontend repo
+ ```cd frontend```
 
 ```bash
 npm install
