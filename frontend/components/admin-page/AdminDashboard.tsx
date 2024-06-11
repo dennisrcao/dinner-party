@@ -14,8 +14,7 @@ interface Event {
 interface Attendee {
   id: number;
   event_id: number;
-  first_name: string;
-  last_name: string;
+  name: string;
   email: string;
   venmo_handle: string;
   phone_number: string;
@@ -85,8 +84,7 @@ const AdminDashboard: React.FC = () => {
             <tr>
               <th>ID</th>
               <th>Event ID</th>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th> Name</th>
               <th>Email</th>
               <th>Venmo Handle</th>
               <th>Phone Number</th>
@@ -97,8 +95,7 @@ const AdminDashboard: React.FC = () => {
               <tr key={attendee.id}>
                 <td>{attendee.id}</td>
                 <td>{attendee.event_id}</td>
-                <td>{attendee.first_name}</td>
-                <td>{attendee.last_name}</td>
+                <td>{attendee.name}</td>
                 <td>{attendee.email}</td>
                 <td>{attendee.venmo_handle}</td>
                 <td>{attendee.phone_number}</td>

@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import GoogleAuthButton from './GoogleAuthButton';
-
+import axios from 'axios';
 import styles from './PopUpForm.module.scss';
 
 interface PopUpFormProps {
@@ -11,7 +12,28 @@ interface PopUpFormProps {
 
 const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose }) => {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
-  console.log("PopUpForm with isLoggedIn:", isLoggedIn);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [venmo, setVenmo] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:5001/attendees', {
+        name,
+        email,
+        venmo,
+        phone,
+      });
+
+      console.log('New attendee created:', response.data);
+      handleClose(); // Close the form after successful submission
+    } catch (error) {
+      console.error('Error creating attendee:', error);
+    }
+  };
 
   if (!popUpVisible) return null;
 
@@ -25,35 +47,25 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose }) => {
           <GoogleAuthButton />
         </div>
         <div className={styles.popUpContent}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>
               Name:
-              <input type="text" name="name" />
+              <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
             </label>
             <br />
             <label>
               Email:
-              <input type="email" name="email" />
+              <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </label>
             <br />
-            {/* <label>
-              RSVP:
-              <select name="rsvp">
-                <option value="going">Going</option>
-                <option value="not_going">Not Going</option>
-                <option value="maybe">Maybe</option>
-              </select>
-            </label> */}
-
             <label>
               Venmo handle @:
-              <input type="venmo" name="venmo" />
+              <input type="text" name="venmo" value={venmo} onChange={(e) => setVenmo(e.target.value)} />
             </label>
             <br />
-
             <label>
               Phone #:
-              <input type="phone" name="phone" />
+              <input type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
             </label>
             <br />
             <button type="submit">Submit</button>

@@ -76,6 +76,11 @@ Database admin panel:
 Open [http://localhost:3000/admin-page](http://localhost:3000/admin-page)
 
 
+Command to send schema to postgreSQL database
+psql -h $DB_HOST -U $DB_USER -d $DB_NAME -f backend/src/db/schema.sql
+
+
+
 
 ## Deploy on Vercel
 
