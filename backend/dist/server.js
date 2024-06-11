@@ -23,16 +23,21 @@ const port = process.env.PORT || 5001;
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
-// Example route to get attendees from the database
-app.get('/attendees', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/events', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log('Attempting to query the database...');
-        const result = yield db_1.default.query('SELECT * FROM attendees');
-        console.log('Query successful:', result.rows);
+        const result = yield db_1.default.query('SELECT * FROM events');
         res.status(200).json(result.rows);
     }
     catch (error) {
-        console.error('Error querying the database', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}));
+app.get('/attendees', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield db_1.default.query('SELECT * FROM attendees');
+        res.status(200).json(result.rows);
+    }
+    catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }));

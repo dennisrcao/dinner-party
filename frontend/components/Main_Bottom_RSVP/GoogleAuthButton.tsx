@@ -1,7 +1,7 @@
 import { signIn, signOut, useSession } from "next-auth/react";
-import styles from './AuthButton.module.scss';
+import styles from './GoogleAuthButton.module.scss';
 
-const AuthButton = () => {
+const GoogleAuthButton = () => {
   const { data: session } = useSession();
   console.log("session:", session);
 
@@ -28,4 +28,4 @@ const AuthButton = () => {
   );
 };
 
-export default AuthButton;
+export default GoogleAuthButton;

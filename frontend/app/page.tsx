@@ -3,8 +3,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.scss";
-import RSVP from "../components/Main_Bottom_RSVP/RSVP"
-import AuthButton from "../components/Main_Bottom_RSVP/AuthButton"; // Import the AuthButton component
+import RSVP from "../components/Main_Bottom_RSVP/RSVPButton"
 import DateTimeSection from "../components/Main_Section_DateTime/DateTimeSection";
 
 

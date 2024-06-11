@@ -34,6 +34,12 @@ npm run dev will build and start (npm run start command bypasses SSL security us
 
 ### Configure BackEnd
 
+View Data PSQL
+```bash
+psql -h dinnerparty.cu5uiqqs8k9e.us-east-2.rds.amazonaws.com -U dennisrcao -p 5432 -d dinnerparty
+```
+Then enter password
+
 
 
 
