@@ -27,21 +27,15 @@ export default function Home() {
           <div className={styles.infoParking}> Parking </div>
           <div className={styles.menu}> Menu </div>
         </div>
-
         <div className={styles.attendingContainer}>
           Attendance
         </div>
-
-
       </div>
       <div className={styles.footer}>
         <div className={styles.buttonContainer}>
         <RSVP />
         </div>
-
-
       </div>
-
     </div>
   );
 }
