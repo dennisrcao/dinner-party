@@ -3,9 +3,9 @@ Description here ...
 
 
 ## Important Links
-[Github Repo](https://github.com/dennisrcao/dinner-party)
-[Google Console Cloud] (https://console.cloud.google.com)
-[Amazon RDS Console](https://console.aws.amazon.com/rds)
+[Github Repo](https://github.com/dennisrcao/dinner-party) <br>
+[Google Cloud Console](https://console.cloud.google.com) <br>
+[Amazon RDS Console](https://console.aws.amazon.com/rds) <br>
 
 ## Getting Started
 
