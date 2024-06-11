@@ -1,14 +1,15 @@
+// pages/_app.tsx
+
 "use client";
 import Image from "next/image";
 import styles from "./page.module.scss";
 import RSVP from "../components/RSVP"
 import AuthButton from "../components/AuthButton"; // Import the AuthButton component
+import DateTimeSection from "../components/DateTimeSection";
 
 
 export default function Home() {
-  const handleClick = () => {
-    console.log("click me!!!");
-  }
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -21,12 +22,24 @@ export default function Home() {
         />
         </div>
       </div>
-      <div className={styles.info}>
-        <div className={styles.date}/>
+      <div className={styles.body}>
+        <div className={styles.dateParkingMenuContainer}>
+          <div className={styles.dateTime}> <DateTimeSection/> </div>
+          <div className={styles.infoParking}> Parking </div>
+          <div className={styles.menu}> Menu </div>
+        </div>
+
+        <div className={styles.attendingContainer}>
+          Attendance
+        </div>
+
+
       </div>
       <div className={styles.footer}>
-        <RSVP/>
-        <AuthButton /> {/* Add the AuthButton component here */}
+        <div className={styles.buttonContainer}>
+        {/* <AuthButton />  */}
+        <RSVP />
+        </div>
 
 
       </div>

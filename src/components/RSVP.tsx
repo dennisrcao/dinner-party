@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styles from './RSVP.module.scss';
 
-
 const RSVP = () => {
   const [popupVisible, setPopupVisible] = useState(false);
 
@@ -15,14 +14,14 @@ const RSVP = () => {
 
   return (
     <>
-      <div className={styles.footer}>
-        <div className={styles.rsvp}>
+        <div className={styles.rsvpBtnContainer}>
           <button
-            style={{ width: "50px", height: "50px" }}
+            className={styles.rsvpBtn}
             onClick={handleClick}
-          />
+          >
+          Google Sign-In <br/> and RSVP
+          </button>
         </div>
-      </div>
 
       {popupVisible && (
         <div className={styles.popupOverlay}>
