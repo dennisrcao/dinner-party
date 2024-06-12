@@ -1,10 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from 'next/image';
-import axios from 'axios';
+import { useSession } from "next-auth/react";
 
 import styles from "./AttendanceSection.module.scss";
-import { useSession } from "next-auth/react";
 
 interface Attendee {
   id: number;
