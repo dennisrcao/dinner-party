@@ -56,7 +56,9 @@ Then to rebuild and deploy the server run
 npm run build
 npm run dev
 ```
-Open [http://localhost:5001/attendees](http://localhost:5001/attendees)
+
+Our server runs on **localhost:5001** but there is a frontend route that interacts with it and visualzies the events + attendees:
+[http://localhost:3000/admin-page](http://localhost:3000/admin-page)
 
 
 npm run dev will build and start (npm run start command bypasses SSL security using flag NODE_TLS_REJECT_UNAUTHORIZED='0')
