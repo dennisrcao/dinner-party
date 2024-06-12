@@ -1,21 +1,23 @@
--- schema.sql
+-- Drop existing tables if they exist
+DROP TABLE IF EXISTS attendees;
+DROP TABLE IF EXISTS events;
 
 -- Create events table
-CREATE TABLE IF NOT EXISTS events (
-  event_id SERIAL PRIMARY KEY,
-  type VARCHAR(255),
-  date VARCHAR(255) NOT NULL,
-  start_time VARCHAR(255) NOT NULL,
-  end_time VARCHAR(255) NOT NULL
+CREATE TABLE events (
+    event_id SERIAL PRIMARY KEY,
+    type VARCHAR(100),
+    date DATE,
+    start_time TIME,
+    end_time TIME
 );
 
 -- Create attendees table
-CREATE TABLE IF NOT EXISTS attendees (
-  id SERIAL PRIMARY KEY,
-  event_id INTEGER REFERENCES events(event_id) ON DELETE CASCADE,
-  name VARCHAR(255),
-
-  email VARCHAR(255),
-  venmo_handle VARCHAR(255),
-  phone_number VARCHAR(255)
+CREATE TABLE attendees (
+    id SERIAL PRIMARY KEY,
+    event_id INTEGER REFERENCES events(event_id),
+    name VARCHAR(100),
+    email VARCHAR(100),
+    venmo_handle VARCHAR(50),
+    phone_number VARCHAR(20),
+    photo_url VARCHAR -- Adding the new column
 );

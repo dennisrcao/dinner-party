@@ -10,24 +10,29 @@ interface PopUpFormProps {
   popUpVisible: boolean;
   handleClose: () => void;
   session: any;
-
+  fetchAttendees: () => void;
 }
 
-const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, session}) => {
+const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, session, fetchAttendees}) => {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [venmo, setVenmo] = useState('');
   const [phone, setPhone] = useState('');
+  const [photoURL, setPhotoURL] = useState('');
 
   useEffect(() => {
     if (session?.user){
       setName(session.user.name || '');
       setEmail(session.user.email || '');
+      setPhotoURL(session.user.picture || '');
     }
   }, [session])
 
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log("handleSubmit-----");
+    console.log("name:", name);
+    console.log("photoURL:", photoURL);
     e.preventDefault();
 
     try {
@@ -36,11 +41,21 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
         email,
         venmo,
         phone,
+        photoURL
       });
 
       console.log('New attendee created:', response.data);
+      fetchAttendees(); //re-fetch attendees after submission (invoked at parent page.tsx)
+                        //so that <AttendanceSection/> will retrigger
       handleClose(); // Close the form after successful submission
     } catch (error) {
+      console.log("error with data package:", {
+        name,
+        email,
+        venmo,
+        phone,
+        photoURL
+      });
       console.error('Error creating attendee:', error);
     }
   };

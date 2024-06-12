@@ -1,0 +1,40 @@
+
+.infoParkingContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  // background-color: orange;
+
+
+  .infoTitle {
+    height: 7%;
+    width: 100%;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 42px;
+  }
+
+  .infoBody {
+    height: 43%;
+    width: 100%;
+    // background-color: red;
+  }
+  .parkingTitle {
+    height: 7%;
+    width: 100%;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 42px;
+  }
+
+  .parkingBody {
+    height: 43%;
+    width: 100%;
+    // background-color: blue;
+  }
+
+
+
+}

@@ -76,8 +76,9 @@ Database admin panel:
 Open [http://localhost:3000/admin-page](http://localhost:3000/admin-page)
 
 
-Command to send schema to postgreSQL database
-psql -h $DB_HOST -U $DB_USER -d $DB_NAME -f backend/src/db/schema.sql
+Command to apply local schema.sql to postgreSQL database
+```psql -h dinnerparty.cu5uiqqs8k9e.us-east-2.rds.amazonaws.com -U dennisrcao -d dinnerparty -f dinner-party/backend/src/db/schema.sql```
+
 
 
 

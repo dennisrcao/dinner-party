@@ -27,7 +27,8 @@
 
   .body{
     width: 100%;
-    height: 80dvh;
+    height: 78dvh;
+    margin-top: 2dvh;
     display: flex;
     flex-direction: column;
     background-color: #001822;
@@ -35,28 +36,30 @@
     font-size: 24px;
     // background-color: red;
 
-
     .dateParkingMenuContainer {
       width: 100%;
       height: 75%;
+      display: flex;
       // background-color: lightblue;
 
-      display: flex;
       .dateTime, .infoParking, .menu{
         width: 33.3%;
-        border: 1px solid white;
         // background-color: green;
+      }
+
+      .infoParking {
+        border-left: 2px solid white;
+        border-right: 2px solid white;
+
 
       }
     }
 
-    .attendingContainer {
+    .attendanceContainer {
       height: 25%;
       width: 100%;
       // background-color: orange;
     }
-
-
   }
 
   .footer {
@@ -64,9 +67,6 @@
     height: 5dvh;
     display: flex;
     justify-content: center;
-    background-color: #001822;
-
-
     // background-color: orange;
 
     .buttonContainer{

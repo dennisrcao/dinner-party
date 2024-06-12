@@ -36,7 +36,7 @@ const DateTimeSection = () => {
     return <div>Loading...</div>;
   }
 
-  console.log("event:", event);
+  // console.log("event:", event);
 
 
 

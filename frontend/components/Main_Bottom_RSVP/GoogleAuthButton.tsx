@@ -29,18 +29,16 @@ const GoogleAuthButton = () => {
           onClick={() => signIn("google", { callbackUrl: window.location.href, state: 'someStateValue' })}
         >
           <Image
-            src="/images/SignInWithGoogle.png" // Make sure to replace this with the correct path to your image
-            alt="Google Sign In"
+            src="/images/SignInWithGoogle.png"
+            alt="GoogleSignIn"
             width={248} // Set the width of your image
             height={60} // Set the height of your image
             className={styles.imageGoogle}
           />
-
         </div>
       ) :
       (
-        <div className={styles.sessionDetails}>
-          {/* <p>Signed in as {session.user.name}</p> */}
+        <div className={styles.loggedInDetails}>
           <div className={styles.pictureContainer}>
             <Image
               src={session.user.picture}
@@ -51,7 +49,6 @@ const GoogleAuthButton = () => {
             />
 
           </div>
-          {/* <p>Email: {session.user.email}</p> */}
           <div className={styles.buttonSignOutContainer}>
             <button
               onClick={() => signOut()}

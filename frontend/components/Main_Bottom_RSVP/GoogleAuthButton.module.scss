@@ -17,7 +17,7 @@
 
 }
 
-.sessionDetails {
+.loggedInDetails {
   width: 100px;
   height: 150px;
   display: flex;
@@ -29,7 +29,6 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    // border-radius: 0;
     overflow: hidden;
 
     .userPic {
@@ -37,7 +36,6 @@
     }
   }
   .buttonSignOutContainer{
-    // width: 100px;
     height: 25%;
     width: 100%;
     display: flex;

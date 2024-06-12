@@ -18,7 +18,7 @@ interface CustomCalendarProps {
 
 export default function CustomCalendar({date}: CustomCalendarProps) {
 
-  console.log("<CustomCalendar> with date:", date);
+  // console.log("<CustomCalendar> with date:", date);
   const [value, onChange] = useState<Value>(new Date());
   return (
     <div className="calendar_container">

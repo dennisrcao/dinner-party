@@ -4,11 +4,13 @@ import { useSession } from 'next-auth/react';
 import { useDispatch } from 'react-redux';
 import { logIn, logOut } from '../../store/authSlice';
 
-
 import styles from './RSVPButton.module.scss';
 
+interface RSVPButtonProps {
+  fetchAttendees: () => void;
+}
 
-const RSVP = () => {
+const RSVPButton: React.FC<RSVPButtonProps> = ({ fetchAttendees }) => {
   const { data: session } = useSession();
   const dispatch = useDispatch();
 
@@ -52,10 +54,11 @@ const RSVP = () => {
           popUpVisible={showPopUp}
           handleClose={handleClose}
           session={session}
+          fetchAttendees={fetchAttendees}
         />
       )}
     </>
   );
 };
 
-export default RSVP;
+export default RSVPButton;

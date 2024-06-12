@@ -1,6 +1,7 @@
 // frontend/components/AdminDashboard.tsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 import styles from './AdminDashboard.module.scss';
 
 interface Event {
@@ -18,6 +19,7 @@ interface Attendee {
   email: string;
   venmo_handle: string;
   phone_number: string;
+  photo_url: string;
 }
 
 const AdminDashboard: React.FC = () => {
@@ -46,6 +48,16 @@ const AdminDashboard: React.FC = () => {
     fetchEvents();
     fetchAttendees();
   }, []);
+
+  const deleteAttendee = async (id: number) => {
+    try {
+      await axios.delete(`http://localhost:5001/attendees/${id}`);
+      setAttendees(attendees.filter(attendee => attendee.id !== id));
+    } catch (error) {
+      console.error('Error deleting attendee:', error);
+    }
+  };
+
 
   return (
     <div className={styles.adminDashboard}>
@@ -82,23 +94,29 @@ const AdminDashboard: React.FC = () => {
         <table>
           <thead>
             <tr>
+              <th className={styles.narrowColumn}>Delete</th>
               <th>ID</th>
               <th>Event ID</th>
               <th> Name</th>
               <th>Email</th>
               <th>Venmo Handle</th>
               <th>Phone Number</th>
+              <th>Photo URL </th>
             </tr>
           </thead>
           <tbody>
             {attendees.map(attendee => (
               <tr key={attendee.id}>
+                <td className={styles.narrowColumn}>
+                  <button onClick={() => deleteAttendee(attendee.id)} className={styles.deleteButton}>X</button>
+                </td>
                 <td>{attendee.id}</td>
                 <td>{attendee.event_id}</td>
                 <td>{attendee.name}</td>
                 <td>{attendee.email}</td>
                 <td>{attendee.venmo_handle}</td>
                 <td>{attendee.phone_number}</td>
+                <td>{attendee.photo_url}</td>
               </tr>
             ))}
           </tbody>
