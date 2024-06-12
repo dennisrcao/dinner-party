@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "NODE_TLS_REJECT_UNAUTHORIZED='0' node dist/server.js",
-    "dev": "npm run build && npm run start"
+    "start": "NODE_ENV=production node dist/server.js",
+    "start:dev": "NODE_TLS_REJECT_UNAUTHORIZED='0' node dist/server.js",
+    "dev": "npm run build && npm run start:dev"
   },
   "keywords": [],
   "author": "",
