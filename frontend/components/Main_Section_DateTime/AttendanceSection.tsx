@@ -24,23 +24,23 @@ interface AttendanceSectionProps {
 const AttendanceSection: React.FC<AttendanceSectionProps> = ({ attendees, fetchAttendees }) => {
   const { data: session } = useSession();
 
-  console.log("<AttendanceSection> with attendees:", attendees);
+  // console.log("<AttendanceSection> with attendees:", attendees);
 
   useEffect(()=> {
-    console.log("attendanceSection mounting");
+    // console.log("attendanceSection mounting");
     fetchAttendees();
   },[]); //mounting
 
   useEffect(() => {
     if (session){
-      console.log("attendanceSection session changed");
+      // console.log("attendanceSection session changed");
       fetchAttendees();
     }
   }, [session]);
 
 
   //maybe another one for component mount
-  console.log("attendees", attendees);
+  // console.log("attendees", attendees);
 
   return (
     <>

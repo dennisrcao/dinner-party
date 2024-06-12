@@ -36,8 +36,8 @@ export default function Home() {
         <Image
           src="/images/Midweek_HotPot.png"
           alt="title"
-          layout="fill"
-          objectFit="contain"
+          width={2027}
+          height={529}
         />
         </div>
       </div>

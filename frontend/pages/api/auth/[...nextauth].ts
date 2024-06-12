@@ -1,6 +1,10 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
+
+console.log("NEXTAUTH_SECRET:", process.env.NEXTAUTH_SECRET);
+
+
 export default NextAuth({
   providers: [
     GoogleProvider({
@@ -14,6 +18,8 @@ export default NextAuth({
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === 'development', // Only enable debug in development
+
   callbacks: {
     async session({ session, token }) {
       if (session.user) {
