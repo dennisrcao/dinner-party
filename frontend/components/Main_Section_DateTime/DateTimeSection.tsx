@@ -12,11 +12,14 @@ interface Event {
 
 const DateTimeSection = () => {
   const [event, setEvent] = useState<Event | null>(null);
+  console.log("<DateTimeSection > ");
+
 
   useEffect(() => {
     const fetchEvent = async () => {
+      console.log("<DateTimeSection > fetchEvent ")
       try {
-        const response = await fetch('http://localhost:5001/events');
+        const response = await fetch('/api/events');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
