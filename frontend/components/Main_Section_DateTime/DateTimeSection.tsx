@@ -21,11 +21,14 @@ const DateTimeSection = () => {
       try {
         const response = await fetch('/api/events');
         if (!response.ok) {
+          console.log("!response.ok")
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
         setEvent(data[0]);
       } catch (error) {
+        console.log("!catch.error")
+
         console.error('Failed to fetch event data:', error);
       }
     };
