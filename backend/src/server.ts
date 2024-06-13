@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true })); // Replaces body-parser for URL
 
 // Events Route
 app.get('/events', async (req, res) => {
+  console.log("hitting the backend /events");
   try {
     const result = await client.query('SELECT * FROM events');
     res.status(200).json(result.rows);

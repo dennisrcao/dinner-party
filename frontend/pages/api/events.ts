@@ -10,6 +10,8 @@ type Data = {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  console.log("events.ts > async handler:");
+
   try {
     const response = await fetch(`${process.env.BACKEND_API_URL}/api/events`);
     const data = await response.json();

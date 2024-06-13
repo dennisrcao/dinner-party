@@ -72,6 +72,7 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
           <GoogleAuthButton />
         </div>
         <div className={styles.formContent}>
+
           <form onSubmit={handleSubmit}>
 
             <div className={styles.entryContainer}>
@@ -101,6 +102,32 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
                 <input type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
               </div>
             </div>
+
+            <div className={styles.entryContainer}>
+              <div className={styles.entryKey}>You drinking alcohol ? :</div>
+              <div className={styles.entryValue}>
+                <input type="text" name="drinking" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              </div>
+            </div>
+
+
+            <div className={styles.entryContainer}>
+              <div className={styles.entryKey}>If so, list how many drinks  you'd want (checkbox) ? :</div>
+
+              <div className={styles.entryValue}>
+                <input type="text" name="numOfDrink" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              </div>
+            </div>
+
+
+            <div className={styles.entryContainer}>
+              <div className={styles.entryKey}>Are you bringing anything (not required) </div>
+
+              <div className={styles.entryValue}>
+                <input type="text" name="drink" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              </div>
+            </div>
+
 
             <div className={styles.submitContainer}>
               <button className={styles.submitButton} type="submit">Submit</button>
