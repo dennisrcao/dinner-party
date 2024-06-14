@@ -26,6 +26,7 @@ app.use(express_1.default.json()); // Replaces body-parser for JSON
 app.use(express_1.default.urlencoded({ extended: true })); // Replaces body-parser for URL-encoded data
 // Events Route
 app.get('/events', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("hitting the backend /events");
     try {
         const result = yield db_1.default.query('SELECT * FROM events');
         res.status(200).json(result.rows);

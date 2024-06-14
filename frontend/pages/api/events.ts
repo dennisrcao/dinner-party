@@ -2,7 +2,7 @@
 // frontend/pages/api/events.ts
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import client from '../../lib/db'; //use the symlink to access the backend db.ts
+import client from '../../lib/db';
 
 
 type Data = {
