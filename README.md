@@ -1,7 +1,6 @@
 # Dinner Party App
 Description here ...
 
-
 ## Important Links
 [Github Repo](https://github.com/dennisrcao/dinner-party) <br>
 [Google Cloud Console](https://console.cloud.google.com/apis/dashboard?project=dinnerpartyauth&show=all) <br>

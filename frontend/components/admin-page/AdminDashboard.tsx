@@ -29,7 +29,8 @@ const AdminDashboard: React.FC = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/events');
+        const response = await axios.get(`${process.env.BACKEND_API_URL}/events`);
+        console.log("Admin dashboard with event response:", events);
         setEvents(response.data);
       } catch (error) {
         console.error('Error fetching events:', error);
@@ -38,7 +39,7 @@ const AdminDashboard: React.FC = () => {
 
     const fetchAttendees = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/attendees');
+        const response = await axios.get(`${process.env.BACKEND_API_URL}/attendees`);
         setAttendees(response.data);
       } catch (error) {
         console.error('Error fetching attendees:', error);
