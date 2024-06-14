@@ -7,7 +7,7 @@ const MenuSection = () => {
   return (
     <div className={styles.menuContainer}>
       <div className={styles.menuTitle}>
-        Menu
+        Menu yaa
       </div>
 
       <div className={styles.menuBody}>
