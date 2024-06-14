@@ -2,8 +2,6 @@
 // frontend/pages/api/events.ts
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import client from '../../lib/db';
-
 
 type Data = {
   events: { date: string; start_time: string; end_time: string }[];
@@ -11,13 +9,18 @@ type Data = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   console.log("events.ts > async handler:");
-
   try {
-    const response = await fetch(`${process.env.BACKEND_API_URL}/api/events`);
+    console.log('Fetching from backend:', process.env.BACKEND_API_URL);
+    const response = await fetch(`${process.env.BACKEND_API_URL}/events`);
+    console.log('Response from backend:', response);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch from backend: ${response.statusText}`);
+    }
     const data = await response.json();
-    res.status(200).json({ events: data.events });
+    console.log('Fetched data:', data);
+    res.status(200).json({ events: data });
   } catch (error) {
+    console.error('Error in events handler:', error);
     res.status(500).json({ events: [] });
   }
 }
-
