@@ -13,11 +13,11 @@ interface Event {
 
 const DateTimeSection = () => {
   const [event, setEvent] = useState<Event | null>(null);
-  console.log("<DateTimeSection > ");
+  console.log("<DateTimeSection>");
 
   useEffect(() => {
     const fetchEvent = async () => {
-      console.log("<DateTimeSection > fetchEvent ");
+      console.log("<DateTimeSection> fetchEvent ");
       try {
         const response = await fetch('/api/events');
         console.log("Response from /api/events:", response);
