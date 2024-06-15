@@ -19,8 +19,9 @@ const DateTimeSection = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       console.log("<DateTimeSection> fetchEvent ");
-      const eventURL = `${process.env.BACKEND_API_URL}/api/events`;
-      console.log("eventURL:", eventURL)
+      const eventURL = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/api/events`;
+      console.log("eventURL:", eventURL);
+
       try {
         const response = await fetch(eventURL);
         if (!response.ok) {
