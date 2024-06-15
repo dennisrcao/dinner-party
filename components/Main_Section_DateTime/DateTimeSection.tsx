@@ -13,19 +13,15 @@ interface Event {
 const DateTimeSection = () => {
   const [event, setEvent] = useState<Event | null>(null);
 
-  console.log("<DateTimeSection>");
-  console.log("state [event]:", event);
 
   useEffect(() => {
     const fetchEvent = async () => {
-      console.log("<DateTimeSection> fetchEvent ");
       const eventURL = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/api/events`;
       console.log("eventURL:", eventURL);
 
       try {
         const response = await fetch(eventURL);
         if (!response.ok) {
-          console.log("!response.ok");
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
@@ -33,7 +29,6 @@ const DateTimeSection = () => {
         console.log('Data:', data);
         setEvent(data[0]);
       } catch (error) {
-        console.log("!catch.error");
         console.error('Failed to fetch event data:', error);
       }
     };
@@ -44,6 +39,8 @@ const DateTimeSection = () => {
   if (!event) {
     return <div>Loading...</div>;
   }
+
+  console.log("DateTimeSection: event STATE...", event);
 
   return (
     <div className={styles.sectionContainer}>

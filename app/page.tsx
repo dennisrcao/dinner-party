@@ -18,13 +18,13 @@ export default function Home() {
 
   const fetchAttendees = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/attendees');
+      const attendeesURL = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/api/attendees`;
+      const response = await axios.get(attendeesURL);
       setAttendees(response.data);
     } catch (error) {
       console.error('Error fetching attendees:', error);
     }
   };
-
   useEffect(() => {
     fetchAttendees();
   },[]);
