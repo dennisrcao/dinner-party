@@ -9,7 +9,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   console.log("url:", eventsURL);
   console.log("NEXTAUTH_SECRET:", process.env.NEXTAUTH_SECRET);
 
-
   try {
     const response = await axios.get(eventsURL);
     res.status(200).json(response.data);
