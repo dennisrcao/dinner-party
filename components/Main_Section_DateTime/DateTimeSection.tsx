@@ -1,5 +1,3 @@
-// frontend/components/Main_Section_DateTime/DateTimeSection.tsx
-
 "use client";
 import CustomCalendar from "./CustomCalendar";
 import styles from "./DateTimeSection.module.scss";
@@ -9,25 +7,30 @@ interface Event {
   date: string;
   start_time: string;
   end_time: string;
+  type: string;
 }
 
 const DateTimeSection = () => {
   const [event, setEvent] = useState<Event | null>(null);
+
   console.log("<DateTimeSection>");
+  console.log("state [event]:", event);
 
   useEffect(() => {
     const fetchEvent = async () => {
       console.log("<DateTimeSection> fetchEvent ");
+      const eventURL = `${process.env.BACKEND_API_URL}/api/events`;
+      console.log("eventURL:", eventURL)
       try {
-        const response = await fetch('https://dinner-party-backend.vercel.app/api/events/');
-        console.log("Response from /api/events:", response);
+        const response = await fetch(eventURL);
         if (!response.ok) {
           console.log("!response.ok");
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log('Fetched event:', data);
-        setEvent(data.events[0]);
+
+        console.log('Data:', data);
+        setEvent(data[0]);
       } catch (error) {
         console.log("!catch.error");
         console.error('Failed to fetch event data:', error);
