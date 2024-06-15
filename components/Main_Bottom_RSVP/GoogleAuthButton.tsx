@@ -18,7 +18,7 @@ const GoogleAuthButton = () => {
     }
   }, [session, dispatch]);
 
-  console.log("session:", session);
+  // console.log("session:", session);
 
   return (
     <>

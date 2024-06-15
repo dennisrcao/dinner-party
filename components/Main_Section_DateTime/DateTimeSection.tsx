@@ -17,7 +17,7 @@ const DateTimeSection = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       const eventsURL = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/api/events`;
-      console.log("eventURL:", eventsURL);
+      // console.log("eventURL:", eventsURL);
 
       try {
         const response = await fetch(eventsURL);
@@ -26,7 +26,7 @@ const DateTimeSection = () => {
         }
         const data = await response.json();
 
-        console.log('Data:', data);
+        // console.log('Data:', data);
         setEvent(data[0]);
       } catch (error) {
         console.error('Failed to fetch event data:', error);
@@ -40,7 +40,7 @@ const DateTimeSection = () => {
     return <div>Loading...</div>;
   }
 
-  console.log("DateTimeSection: event STATE...", event);
+  // console.log("DateTimeSection: event STATE...", event);
 
   return (
     <div className={styles.sectionContainer}>

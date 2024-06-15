@@ -13,7 +13,7 @@ interface PopUpFormProps {
   fetchAttendees: () => void;
 }
 
-const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, session, fetchAttendees}) => {
+const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, session, fetchAttendees }) => {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -21,32 +21,36 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
   const [phone, setPhone] = useState('');
   const [photoURL, setPhotoURL] = useState('');
 
+  const [drinkAlcohol, setDrinkAlcohol] = useState('');
+  const [alcoholDetails, setAlcoholDetails] = useState('');
+  const [bringAnything, setBringAnything] = useState('');
+
   useEffect(() => {
-    if (session?.user){
+    if (session?.user) {
       setName(session.user.name || '');
       setEmail(session.user.email || '');
       setPhotoURL(session.user.picture || '');
     }
-  }, [session])
+  }, [session]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log("handleSubmit-----");
-    console.log("name:", name);
-    console.log("photoURL:", photoURL);
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5001/attendees', {
+      const backendURL = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/api/attendees`;
+      const response = await axios.post(backendURL, {
         name,
         email,
         venmo,
         phone,
-        photoURL
+        photoURL,
+        drinkAlcohol,
+        alcoholDetails,
+        bringAnything
       });
 
       console.log('New attendee created:', response.data);
-      fetchAttendees(); //re-fetch attendees after submission (invoked at parent page.tsx)
-                        //so that <AttendanceSection/> will retrigger
+      fetchAttendees(); // re-fetch attendees after submission
       handleClose(); // Close the form after successful submission
     } catch (error) {
       console.log("error with data package:", {
@@ -54,7 +58,10 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
         email,
         venmo,
         phone,
-        photoURL
+        photoURL,
+        drinkAlcohol,
+        alcoholDetails,
+        bringAnything
       });
       console.error('Error creating attendee:', error);
     }
@@ -66,15 +73,13 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
     <div className={styles.popUpOverlay}>
       <div className={styles.popUp}>
         <div className={styles.closeButtonContainer}>
-          <CloseIcon className={styles.closeIcon} onClick={handleClose}/>
+          <CloseIcon className={styles.closeIcon} onClick={handleClose} />
         </div>
         <div className={styles.googleAuthButtonContainer}>
           <GoogleAuthButton />
         </div>
         <div className={styles.formContent}>
-
           <form onSubmit={handleSubmit}>
-
             <div className={styles.entryContainer}>
               <div className={styles.entryKey}> Name: </div>
               <div className={styles.entryValue}>
@@ -106,36 +111,28 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
             <div className={styles.entryContainer}>
               <div className={styles.entryKey}>You drinking alcohol ? :</div>
               <div className={styles.entryValue}>
-                <input type="text" name="drinking" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input type="text" name="drinkAlcohol" value={drinkAlcohol} onChange={(e) => setDrinkAlcohol(e.target.value)} />
               </div>
             </div>
-
 
             <div className={styles.entryContainer}>
-              <div className={styles.entryKey}>If so, list how many drinks  you'd want (checkbox) ? :</div>
-
+              <div className={styles.entryKey}>If so, list beer or wine and how many you'd want :</div>
               <div className={styles.entryValue}>
-                <input type="text" name="numOfDrink" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input type="text" name="alcoholDetails" value={alcoholDetails} onChange={(e) => setAlcoholDetails(e.target.value)} />
               </div>
             </div>
-
 
             <div className={styles.entryContainer}>
               <div className={styles.entryKey}>Are you bringing anything (not required) </div>
-
               <div className={styles.entryValue}>
-                <input type="text" name="drink" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input type="text" name="bringAnything" value={bringAnything} onChange={(e) => setBringAnything(e.target.value)} />
               </div>
             </div>
-
 
             <div className={styles.submitContainer}>
               <button className={styles.submitButton} type="submit">Submit</button>
             </div>
-
-
           </form>
-          {/* <button onClick={handleClose}>Close</button> */}
         </div>
       </div>
     </div>
