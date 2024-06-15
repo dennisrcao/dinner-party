@@ -19,7 +19,7 @@ const DateTimeSection = () => {
     const fetchEvent = async () => {
       console.log("<DateTimeSection> fetchEvent ");
       try {
-        const response = await fetch('/api/events');
+        const response = await fetch('https://dinner-party-backend.vercel.app/api/events/');
         console.log("Response from /api/events:", response);
         if (!response.ok) {
           console.log("!response.ok");
