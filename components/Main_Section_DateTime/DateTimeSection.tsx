@@ -16,11 +16,11 @@ const DateTimeSection = () => {
 
   useEffect(() => {
     const fetchEvent = async () => {
-      const eventURL = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/api/events`;
-      console.log("eventURL:", eventURL);
+      const eventsURL = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/api/events`;
+      console.log("eventURL:", eventsURL);
 
       try {
-        const response = await fetch(eventURL);
+        const response = await fetch(eventsURL);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
