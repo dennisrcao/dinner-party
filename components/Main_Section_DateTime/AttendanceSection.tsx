@@ -20,27 +20,18 @@ interface AttendanceSectionProps {
   fetchAttendees: () => void;
 }
 
-
 const AttendanceSection: React.FC<AttendanceSectionProps> = ({ attendees, fetchAttendees }) => {
   const { data: session } = useSession();
 
-  // console.log("<AttendanceSection> with attendees:", attendees);
-
   useEffect(()=> {
-    // console.log("attendanceSection mounting");
     fetchAttendees();
-  },[]); //mounting
+  },[]);
 
   useEffect(() => {
     if (session){
-      // console.log("attendanceSection session changed");
       fetchAttendees();
     }
   }, [session]);
-
-
-  //maybe another one for component mount
-  // console.log("attendees", attendees);
 
   return (
     <>
@@ -50,7 +41,6 @@ const AttendanceSection: React.FC<AttendanceSectionProps> = ({ attendees, fetchA
         </div>
         <div className={styles.attendeesContainer}>
           {attendees.map((attendee, idx) => {
-
             return (
               <div
                 key={idx}
@@ -62,6 +52,7 @@ const AttendanceSection: React.FC<AttendanceSectionProps> = ({ attendees, fetchA
                     alt={"ProfilePic"}
                     width={100}
                     height={100}
+                    style={{ borderRadius: '50%' }}
                   />
                 </div>
                 <div className={styles.attendeeName}>
@@ -77,4 +68,3 @@ const AttendanceSection: React.FC<AttendanceSectionProps> = ({ attendees, fetchA
 };
 
 export default AttendanceSection;
-

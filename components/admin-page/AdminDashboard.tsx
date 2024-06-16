@@ -55,7 +55,7 @@ const AdminDashboard: React.FC = () => {
 
   const deleteAttendee = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:5001/attendees/${id}`);
+      await axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/api/attendees/${id}`);
       setAttendees(attendees.filter(attendee => attendee.id !== id));
     } catch (error) {
       console.error('Error deleting attendee:', error);
