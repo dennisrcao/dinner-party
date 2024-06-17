@@ -5,7 +5,7 @@
   flex-direction: column;
   padding-left: 20px;
   border-top: 1px solid white;
-  background-color: orange;
+  // background-color: orange;
 
   .attendanceTitle {
     height: 20%;
@@ -13,14 +13,16 @@
     font-size: 36px;
     font-weight: 500;
     line-height: 42px;
-    background-color: #ffff00;
+    // background-color: #ffff00;
   }
 
   .attendeesContainer {
     height: 100%;
     width: 100%;
     display: flex;
-    background-color: red;
+    margin-top: 10px;
+    // background-color: red;
+
 
     .attendeeContainer {
       height: 100%;
@@ -28,7 +30,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 1px solid black;
+      // border: 1px solid black;
 
 
       .attendeePicture {
