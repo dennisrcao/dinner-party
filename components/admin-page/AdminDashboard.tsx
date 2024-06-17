@@ -19,6 +19,7 @@ interface Attendee {
   email: string;
   venmo_handle: string;
   phone_number: string;
+  neighborhood: string;
   photo_url: string;
   drink_details: string;
   alcohol_details: string;
@@ -105,6 +106,8 @@ const AdminDashboard: React.FC = () => {
               <th>email</th>
               <th>venmo</th>
               <th>phone</th>
+              <th>neighborhood</th>
+
               <th>photo_url </th>
               <th>drink_alcohol </th>
               <th>alcohol_details </th>
@@ -123,6 +126,7 @@ const AdminDashboard: React.FC = () => {
                 <td>{attendee.email}</td>
                 <td>{attendee.venmo_handle}</td>
                 <td>{attendee.phone_number}</td>
+                <td>{attendee.neighborhood}</td>
                 <td>{attendee.photo_url}</td>
                 <td>{attendee.drink_details}</td>
                 <td>{attendee.alcohol_details}</td>

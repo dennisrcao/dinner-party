@@ -19,8 +19,8 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
   const [email, setEmail] = useState('');
   const [venmo, setVenmo] = useState('');
   const [phone, setPhone] = useState('');
+  const [neighborhood, setNeighborhood] = useState('');
   const [photoURL, setPhotoURL] = useState('');
-
   const [drinkAlcohol, setDrinkAlcohol] = useState('');
   const [alcoholDetails, setAlcoholDetails] = useState('');
   const [bringAnything, setBringAnything] = useState('');
@@ -43,6 +43,7 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
         email,
         venmo,
         phone,
+        neighborhood,
         photoURL,
         drinkAlcohol,
         alcoholDetails,
@@ -58,6 +59,7 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
         email,
         venmo,
         phone,
+        neighborhood,
         photoURL,
         drinkAlcohol,
         alcoholDetails,
@@ -105,6 +107,13 @@ const PopUpForm: React.FC<PopUpFormProps> = ({ popUpVisible, handleClose, sessio
               <div className={styles.entryKey}>Phone #:</div>
               <div className={styles.entryValue}>
                 <input type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              </div>
+            </div>
+
+            <div className={styles.entryContainer}>
+              <div className={styles.entryKey}>Neighborhood (for carpool):</div>
+              <div className={styles.entryValue}>
+                <input type="text" name="neighborhood" value={neighborhood} onChange={(e) => setNeighborhood(e.target.value)} />
               </div>
             </div>
 
