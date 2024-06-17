@@ -38,7 +38,7 @@
 
     .dateParkingMenuContainer {
       width: 100%;
-      height: 75%;
+      height: 80%;
       display: flex;
       // background-color: lightblue;
 
@@ -48,15 +48,14 @@
       }
 
       .infoParking {
-        border-left: 2px solid white;
-        border-right: 2px solid white;
-
+        // border-left: 2px solid white;
+        // border-right: 2px solid white;
 
       }
     }
 
     .attendanceContainer {
-      height: 25%;
+      height: 20%;
       width: 100%;
       // background-color: orange;
     }

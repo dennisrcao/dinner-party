@@ -13,6 +13,10 @@ interface Attendee {
   venmo_handle: string;
   phone_number: string;
   photo_url: string;
+  drink_alcohol: string;
+  alcohol_details: string;
+  bring_anything;
+
 }
 
 interface AttendanceSectionProps {
@@ -57,6 +61,9 @@ const AttendanceSection: React.FC<AttendanceSectionProps> = ({ attendees, fetchA
                 </div>
                 <div className={styles.attendeeName}>
                   {attendee.name}
+                </div>
+                <div className={styles.bringAnything}>
+                  {attendee.bring_anything}
                 </div>
               </div>
             );
